@@ -1,0 +1,2 @@
+#module load intel/2020 netcdf mpich
+module load intel/2018.4 impi/2018.4 nco/4.8.1
