@@ -242,6 +242,8 @@ NPAC_profile['depth'] = xr.DataArray(data=Tprof['depth'].squeeze().values[:97], 
                                                   cartesian_axis = "Z",
                                                   positive = "up"))
 
+NPAC_profile['eta'] = xr.DataArray(data=woa13_t['depth_bnds'].isel(nbounds=0).squeeze().values[:98], dims=('Interfaces'))
+
 
 # In[24]:
 
