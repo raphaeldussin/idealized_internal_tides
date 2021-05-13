@@ -130,3 +130,8 @@ dmypy.json
 
 # netcdf data files
 *.nc
+
+# MOM6 and logs
+MOM_parameter_doc.*
+MOM6
+RESTART
