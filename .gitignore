@@ -135,3 +135,10 @@ dmypy.json
 MOM_parameter_doc.*
 MOM6
 RESTART
+available_diags.000000
+CPU_stats
+logfile.000000.out
+ocean.stats
+time_stamp.out
+core
+exitcode

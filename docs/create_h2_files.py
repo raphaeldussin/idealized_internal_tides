@@ -8,5 +8,5 @@ ds.to_netcdf('h2_narrow_chan.nc')
 
 # wide channel
 ds = xr.Dataset()
-ds['h2'] = xr.DataArray(np.zeros((80,100)), dims=('y', 'x'))
+ds['h2'] = xr.DataArray(np.zeros((75,100)), dims=('y', 'x'))
 ds.to_netcdf('h2_wide_chan.nc')

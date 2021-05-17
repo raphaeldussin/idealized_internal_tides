@@ -8,6 +8,8 @@ FMS_MODS = affinity amip_interp astronomy axis_utils block_control column_diagno
 
 
 MOM6_PATHS = config_src/drivers/solo_driver config_src/memory/dynamic_symmetric config_src/external config_src/infra/FMS1 src
+# this is for older code versions
+# MOM6_PATHS = config_src/solo_driver config_src/dynamic config_src/external src/{*,*/*,*/*/*}
 
 build/MOM6: build/Makefile
 	cd $(@D) ; make
