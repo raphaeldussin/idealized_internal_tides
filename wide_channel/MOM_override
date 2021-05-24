@@ -15,4 +15,4 @@ INTERNAL_TIDE_FROUDE_DRAG = False
 !VERBOSITY = 9
 #override F_0 = 9.35E-05
 #override BETA = 1.75E-11
-#override LAT0 = 40.
+#override LAT_0 = 40.
