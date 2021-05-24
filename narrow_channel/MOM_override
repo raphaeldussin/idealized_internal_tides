@@ -5,14 +5,11 @@ INTERNAL_TIDE_SOURCE_X = -150.0
 INTERNAL_TIDE_SOURCE_Y = 20.0
 INTERNAL_TIDE_SOURCE_TLEN_DAYS = 1
 H2_FILE = h2_narrow_chan.nc
-!REFL_ANGLE_FILE = internal_waves_RTcoef_1deg_v7.nc
-!REFL_PREF_FILE = internal_waves_RTcoef_1deg_v7.nc
-!REFL_DBL_FILE = internal_waves_RTcoef_1deg_v7.nc
+REFL_ANGLE_FILE = IWcoefs_narrow_channel.nc
+REFL_PREF_FILE = IWcoefs_narrow_channel.nc
+REFL_DBL_FILE = IWcoefs_narrow_channel.nc
 INTERNAL_TIDE_WAVE_DRAG = False
 INTERNAL_TIDE_FROUDE_DRAG = False
 !DIABATIC_FIRST = True
 !DEBUG = TRUE
 !VERBOSITY = 9
-!DT = 100
-!DT_THERM = 100
-

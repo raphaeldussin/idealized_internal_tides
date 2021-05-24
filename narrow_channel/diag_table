@@ -15,6 +15,7 @@
 "ocean_model","e","e","prog","all",.false.,"none",2
 "ocean_model","temp","temp","prog","all",.false.,"none",2
 "ocean_model","salt","salt","prog","all",.false.,"none",2
+"ocean_model","Coriolis","Coriolis","prog","all",.false.,"none",2
 "ocean_model","TKE_itidal","TKE_itidal","prog","all",.false.,"none",2
 "ocean_model","TKE_itidal_input","TKE_itidal_input","prog","all",.false.,"none",2
 "ocean_model","Itide_En_freq1_mode1","Itide_En_freq1_mode1","prog","all",.false.,"none",2
