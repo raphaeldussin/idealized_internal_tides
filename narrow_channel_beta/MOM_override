@@ -14,4 +14,3 @@ INTERNAL_TIDE_FROUDE_DRAG = False
 !DEBUG = TRUE
 !VERBOSITY = 9
 #override TOPO_CONFIG = "flat"
-#override BETA = 0.0
