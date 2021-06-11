@@ -1,0 +1,19 @@
+#/bin/bash
+
+# build directory structure
+if [ ! -d INPUT ] ; then mkdir INPUT ; fi
+if [ ! -d RESTART ] ; then mkdir RESTART ; fi
+
+# get input files
+if [ ! -f INPUT/coordinates_NPAC_profile.nc ] ; then ln -s ../../docs/coordinates_NPAC_profile.nc ./INPUT/. ; fi
+if [ ! -f INPUT/h2_narrow_chan.nc ] ; then ln -s ../../docs/h2_narrow_chan.nc ./INPUT/. ; fi
+if [ ! -f INPUT/IWcoefs_narrow_channel_ridge.nc ] ; then ln -s ../../docs/IWcoefs_narrow_channel_ridge.nc ./INPUT/. ; fi
+
+# get executable
+if [ ! -f MOM6 ] ; then ln -s ../build/MOM6 . ; fi
+
+# source env
+. ../scripts/gaea-intel-env
+
+# run model
+srun -n 4 ./MOM6
