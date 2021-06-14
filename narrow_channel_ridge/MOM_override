@@ -10,7 +10,6 @@ REFL_PREF_FILE = IWcoefs_narrow_channel_ridge.nc
 REFL_DBL_FILE = IWcoefs_narrow_channel_ridge.nc
 INTERNAL_TIDE_WAVE_DRAG = False
 INTERNAL_TIDE_FROUDE_DRAG = False
-!DIABATIC_FIRST = True
 !DEBUG = TRUE
 !VERBOSITY = 9
 #override BETA = 0.0
