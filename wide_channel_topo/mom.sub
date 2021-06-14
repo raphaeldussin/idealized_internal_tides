@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -n 12
 #SBATCH --time=1:00:00
-#SBATCH --job-name="wide_chan"
+#SBATCH --job-name="wide_chan_topo"
 #SBATCH --output=slurm.%J.out
 #SBATCH --error=slurm.%J.err
 #SBATCH --qos=normal
