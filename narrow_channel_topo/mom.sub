@@ -1,4 +1,13 @@
-#/bin/bash
+#!/bin/bash
+#SBATCH -n 4
+#SBATCH --time=1:00:00
+#SBATCH --job-name="channel_chan"
+#SBATCH --output=slurm.%J.out
+#SBATCH --error=slurm.%J.err
+#SBATCH --qos=normal
+#SBATCH --partition=batch
+#SBATCH --clusters=c4
+#SBATCH --account=gfdl_o
 
 # build directory structure
 if [ ! -d INPUT ] ; then mkdir INPUT ; fi

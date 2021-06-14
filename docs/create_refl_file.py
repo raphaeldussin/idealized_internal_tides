@@ -123,3 +123,13 @@ ds = create_refl_ridge(ds, geom, rcoef=1., depth=2000)
 #ds = add_waveguide(ds)
 ds.to_netcdf('IWcoefs_narrow_channel_ridge.nc')
 
+
+#--------------------- wide channel -----------------------------------
+geom = xr.open_dataset('../wide_channel/ocean_geometry.nc')
+
+ds = xr.Dataset()
+ds['LON'] = geom['lonh']
+ds['LAT'] = geom['lath']
+
+ds = create_refl_walls(ds, geom)
+ds.to_netcdf('IWcoefs_wide_channel.nc')
