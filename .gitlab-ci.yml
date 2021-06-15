@@ -1,0 +1,16 @@
+stages:
+  - compile_mom
+
+compile_mom:
+  stage: compile_mom
+  tags:
+    - ncrc4
+  timeout: 2 hours 0 minutes
+  before_script:
+    - git submodule init
+    - git submodule update
+  script:
+    - . ./scripts/gaea-intel-env
+    - make
+    - test -f build/MOM6
+
