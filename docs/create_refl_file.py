@@ -112,6 +112,16 @@ ds = create_refl_walls(ds, geom)
 ds.to_netcdf('IWcoefs_narrow_channel.nc')
 
 
+#--------------------- long channel --------------------------------
+geom = xr.open_dataset('../long_channel/ocean_geometry.nc')
+
+ds = xr.Dataset()
+ds['LON'] = geom['lonh']
+ds['LAT'] = geom['lath']
+
+ds = create_refl_walls(ds, geom)
+ds.to_netcdf('IWcoefs_long_channel.nc')
+
 #--------------------- narrow channel ridge --------------------------
 geom = xr.open_dataset('../narrow_channel_ridge/ocean_geometry.nc')
 

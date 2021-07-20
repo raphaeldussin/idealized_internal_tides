@@ -9,6 +9,7 @@
 # Prognostic Ocean fields:
 #=========================
 
+"ocean_model","area_t","area_t","prog","all",.false.,"none",2
 "ocean_model","u","u","prog","all",.false.,"none",2
 "ocean_model","v","v","prog","all",.false.,"none",2
 "ocean_model","h","h","prog","all",.false.,"none",1
@@ -31,6 +32,7 @@
 #"ocean_model", "Nb_itide", "Nb_itide", "prog","all",.false.,"none",2
 #"ocean_model", "N2_b_itide", "N2_b_itide", "prog","all",.false.,"none",2
 "ocean_model", "ITide_tot_En", "ITide_tot_En", "prog","all",.false.,"none",2
+"ocean_model", "Itide_En_ang_freq1_mode1", "Itide_En_ang_freq1_mode1", "prog","all",.false.,"none",2
 #"ocean_model", "ITide_drag", "ITide_drag", "prog","all",.false.,"none",2
 #"ocean_model", "ITide_tot_leak_loss", "ITide_tot_leak_loss", "prog","all",.false.,"none",2
 #"ocean_model", "ITide_tot_quad_loss", "ITide_tot_quad_loss", "prog","all",.false.,"none",2

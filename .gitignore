@@ -142,3 +142,4 @@ ocean.stats
 time_stamp.out
 core
 exitcode
+slurm*

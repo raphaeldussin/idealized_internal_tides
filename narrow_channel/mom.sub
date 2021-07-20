@@ -25,4 +25,4 @@ if [ ! -f MOM6 ] ; then ln -s ../build/MOM6 . ; fi
 . ../scripts/gaea-intel-env
 
 # run model
-srun -n 4 ./MOM6
+srun -n $SLURM_NTASKS ./MOM6
