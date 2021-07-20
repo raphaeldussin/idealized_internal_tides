@@ -62,7 +62,7 @@ def create_refl_ridge(ds, geom, rcoef=1., depth=1000):
     trans = 0. * np.ones(geom['D'].shape)
     
     refl_pref[topoj, topoi] = 1.
-    refl_dbl[topoj, topoi] = 1.
+    refl_dbl[topoj, topoi] = 0.
     trans[topoj, topoi] = 0.
 
     ds['refl'] = xr.DataArray(refl, dims=geom['D'].dims)
@@ -86,7 +86,7 @@ def create_refl_walls(ds, geom):
     refl[-1,:] = 1.
     refl_pref[0,:] = 1.
     refl_pref[-1,:] = 1.
-    refl_angle[0,:] = - np.pi
+    refl_angle[0,:] = np.pi
     refl_angle[-1,:] = 0.
     refl_dbl[0,:] = 0.
     refl_dbl[-1,:] = 0.
