@@ -53,9 +53,9 @@ def create_refl_ridge(ds, geom, rcoef=1., depth=1000):
     refl[topoj, topoi] = rcoef
     for j,i in zip(topoj, topoi):
         if i < 50: # mid-basin
-            refl_angle[j, i] = 1 * np.pi / 2
-        else:
             refl_angle[j, i] = 3 * np.pi / 2
+        else:
+            refl_angle[j, i] = 1 * np.pi / 2
 
     refl_pref =0. * np.ones(geom['D'].shape)
     refl_dbl = 0. * np.ones(geom['D'].shape)
@@ -73,31 +73,57 @@ def create_refl_ridge(ds, geom, rcoef=1., depth=1000):
     return ds
 
 
-def create_refl_walls(ds, geom):
+def create_refl_walls(ds, geom, rotate=False):
     """ create reflection for E-W walls """
+    
+    #if rotate:
+    #    ny, nx = geom['D'].transpose().shape
+    #else:
+    #    ny, nx = geom['D'].shape
+    ny, nx = geom['D'].shape
 
-    refl = 0 * np.ones(geom['D'].shape)
-    refl_angle = -999.9 * np.ones(geom['D'].shape)
-    refl_pref =  0* np.ones(geom['D'].shape)
-    refl_dbl = 0 * np.ones(geom['D'].shape)
-    trans = 0 * np.ones(geom['D'].shape)
+    refl = 0 * np.ones((ny, nx))
+    refl_angle = -999.9 * np.ones((ny, nx))
+    refl_pref =  0* np.ones((ny, nx))
+    refl_dbl = 0 * np.ones((ny, nx))
+    trans = 0 * np.ones((ny, nx))
 
-    refl[0,:] = 1.
-    refl[-1,:] = 1.
-    refl_pref[0,:] = 1.
-    refl_pref[-1,:] = 1.
-    refl_angle[0,:] = np.pi
-    refl_angle[-1,:] = 0.
-    refl_dbl[0,:] = 0.
-    refl_dbl[-1,:] = 0.
-    trans[0,:] = 0.
-    trans[-1,:] = 0.
+    jsouth=0
+    jnorth=-1
+    #jsouth=2
+    #jnorth=-3
+
+    refl[jsouth,:] = 1.
+    refl[jnorth,:] = 1.
+    refl_pref[jsouth,:] = 1.
+    refl_pref[jnorth,:] = 1.
+    refl_angle[jsouth,:] = np.pi ##I believe this is correct
+    refl_angle[jnorth,:] = 0.
+    #refl_angle[0,:] = 0.
+    #refl_angle[-1,:] = np.pi
+    refl_dbl[jsouth,:] = 0.
+    refl_dbl[jnorth,:] = 0.
+    trans[jsouth,:] = 0.
+    trans[jnorth,:] = 0.
+
+    if rotate:
+        refl = refl.transpose()
+        refl_pref = refl_pref.transpose()
+        refl_angle = refl_angle.transpose()
+        refl_dbl = refl_dbl.transpose()
+        trans = trans.transpose()
 
     ds['refl'] = xr.DataArray(refl, dims=geom['D'].dims, attrs = {'_FillValue': 1e+20})
     ds['refl_angle'] = xr.DataArray(refl_angle, dims=geom['D'].dims, attrs = {'_FillValue': 1e+20})
     ds['refl_pref'] = xr.DataArray(refl_pref, dims=geom['D'].dims, attrs = {'_FillValue': 1e+20})
     ds['refl_dbl'] = xr.DataArray(refl_dbl, dims=geom['D'].dims, attrs = {'_FillValue': 1e+20})
     ds['trans'] = xr.DataArray(trans, dims=geom['D'].dims, attrs = {'_FillValue': 1e+20})
+
+    #ds['refl'] = xr.DataArray(refl, dims=('y', 'x'), attrs = {'_FillValue': 1e+20})
+    #ds['refl_angle'] = xr.DataArray(refl_angle, dims=('y','x'), attrs = {'_FillValue': 1e+20})
+    #ds['refl_pref'] = xr.DataArray(refl_pref, dims=('y','x'), attrs = {'_FillValue': 1e+20})
+    #ds['refl_dbl'] = xr.DataArray(refl_dbl, dims=('y','x'), attrs = {'_FillValue': 1e+20})
+    #ds['trans'] = xr.DataArray(trans, dims=('y','x'), attrs = {'_FillValue': 1e+20})
     return ds
 
 
@@ -111,6 +137,11 @@ ds['LAT'] = geom['lath']
 ds = create_refl_walls(ds, geom)
 ds.to_netcdf('IWcoefs_narrow_channel.nc')
 
+dsR = xr.Dataset()
+dsR = create_refl_walls(dsR, geom, rotate=True)
+dsR.to_netcdf('IWcoefs_narrow_channel_R1.nc')
+
+exit()
 
 #--------------------- long channel --------------------------------
 geom = xr.open_dataset('../long_channel/ocean_geometry.nc')

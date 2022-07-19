@@ -16,5 +16,5 @@
         stack_size =0 /
 
  &ocean_solo_nml
-        months = 3
+        months = 12
         days = 0 /

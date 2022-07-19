@@ -1,0 +1,13 @@
+#!/bin/bash
+
+expts="narrow_channel narrow_channel_beta narrow_channel_ridge narrow_channel_topo"
+expts="$expts wide_channel wide_channel_beta wide_channel_topo"
+expts="$expts long_channel"
+
+for expt in $expts ; do
+  echo submitting job for $expt
+  pushd $expt
+  sbatch mom.sub
+  popd
+done
+

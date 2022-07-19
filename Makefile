@@ -11,6 +11,8 @@ MOM6_PATHS = config_src/drivers/solo_driver config_src/memory/dynamic_symmetric 
 # this is for older code versions
 # MOM6_PATHS = config_src/solo_driver config_src/dynamic config_src/external src/{*,*/*,*/*/*}
 
+#build/MOM6: build/Makefile
+#	cd $(@D) ; make DEBUG=1
 build/MOM6: build/Makefile
 	cd $(@D) ; make
 build/Makefile: build/path_names
